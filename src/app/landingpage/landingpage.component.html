@@ -1,0 +1,108 @@
+<!-- Navigation Bar -->
+<div class="navbar-fixed">
+    <nav>
+        <div class="nav-wrapper" style="background-color: #418bd1;">
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+                <li><a style="font-family: 'MiLanting';" routerLink="/landingpage">Home</a></li>
+                <li>
+                    <span style="font-family: 'MiLanting';">|</span>
+                </li>
+                <li><a style="font-family: 'MiLanting';" routerLink="/register">Register</a></li>
+                <li>
+                    <span style="font-family: 'MiLanting';">|</span>
+                </li>
+
+                <li><a style="font-family: 'MiLanting';" routerLink="/login">Log In</a></li>
+            </ul>
+        </div>
+    </nav>
+</div>
+
+<!-- Crete parallax scrolling effect -->
+<meta name=" viewport " content="width=device-width, initial-scale=1 " />
+<style>
+    .parallax {
+        background-image: url("/assets/parallaxbackground.jpg ");
+        min-height: 800px;
+        background-attachment: fixed;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+</style>
+
+<!-- Tagline with logo -->
+<div class="parallax">
+    <img style="display: block; margin-left: auto; margin-right: auto; padding-top: 300px;" src="/assets/finallogo.png" class="animated fadeInDown slower delay-1s" />
+    <p style="color: white; text-align: center; font-family: 'MiLanting';" class="animated zoomIn slower delay-2s">Your catering needs, WeCater</p>
+</div>
+
+<!-- Mobile App Features -->
+<div style="height: 900px; background-color: #418bd1; font-size: 24px; padding: 100px;">
+    <div class="row" style="margin-left: auto; margin-right: auto;">
+        <img style="width: 23%; height: 650px; float: right;" src="/assets/transparentDeviceMockup1.png" />
+        <div class="container">
+            <div class="col s5">
+                <p style="color: white; font-family: 'MiLanting'; text-align: justify; font-size: 30px;"><i class="material-icons iconsPo">public</i>Explore</p>
+                <p style="color: white; font-family: 'MiLanting'; text-align: justify;">See available catering services in your city, Discover ones that are new and still see the ones who have stood the test of time.</p>
+            </div>
+            <div class="col s5">
+                <p style="color: white; font-family: 'MiLanting'; text-align: justify; font-size: 30px;"><i class="material-icons iconsPo">place</i>Nearby</p>
+                <p style="color: white; font-family: 'MiLanting'; text-align: justify;">See nearby locations of catering services IN YOUR AREA. WeCater supports Google Maps integration to provide location services to you.</p>
+            </div>
+            <div class="col s5">
+                <p style="color: white; font-family: 'MiLanting'; text-align: justify; font-size: 30px;"><i class="material-icons iconsPo">comment</i>Review</p>
+                <p style="color: white; font-family: 'MiLanting'; text-align: justify;">Satisfied with a catering service? Help others with their decisions by providing your feedback.</p>
+            </div>
+            <div class="col s5">
+                <p style="color: white; font-family: 'MiLanting'; text-align: justify; font-size: 30px;"><i class="material-icons iconsPo">mail</i>Interact</p>
+                <p style="color: white; font-family: 'MiLanting'; text-align: justify;">
+                    Interested in a certain catering service? Communicate to them through the app. WeCater provides contact details such as contact number, email address and social media accounts.
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- About Us -->
+<div style="height: 800px; background-color: #192965; font-size: 24px; padding: 10px;">
+    <p style="color: white; font-family: 'MiLanting'; text-align: justify; text-align: center;">About Us</p>
+
+    <img class="center" style="margin-left: auto; margin-right: auto; margin-top: -50px;" src="/assets/trezlogo.png" />
+
+    <div style="margin-top: -70px;" class="carousel slider">
+        <div class="carousel-item"><img style="width: 100%; height: 100%;" src="/assets/uniqueface.jpg" /></div>
+        <div class="carousel-item"><img style="width: 100%; height: 100%;" src="/assets/rappy.jpg" /></div>
+        <div class="carousel-item"><img style="width: 100%; height: 100%;" src="/assets/mors.jpg" /></div>
+    </div>
+
+    <div class="container">
+        <div class="container">
+            <p style="color: white; font-family: 'MiLanting'; text-align: justify;">
+                Trez Bandidos was founded on January 2020, with the ultimate goal of creating applications that solve modern problems, showcasing accordance with industry standards, modern & user-friendly interface, and effective solution
+                to aforementioned problems.
+            </p>
+        </div>
+    </div>
+</div>
+
+<!-- Device Mockup Screenshot with Google Play Store Link -->
+<div style="height: 800px; background-color: #418bd1; font-size: 24px; padding: 70px;">
+    <img style="height: 90%;" class="center" src="/assets/transparentDeviceMockup3.png" />
+    <br />
+    <a class="center waves-effect waves-light btn-large indigo darken-4" style="width: 23%; border-radius: 40px; font-family: 'MiLanting';">Get it now on <b> Google Play </b></a>
+</div>
+
+<!-- Footer with Return to top button -->
+<div class="center" style="background-color: #192965; font-size: 24px; padding: 70px;">
+    <h5 class="center-align miLanting white-text">Contact Us</h5>
+    <img style="padding-left: 20px; padding-right: 20px; width: 90px; height: auto; margin-top: 8px;" src="/assets/twitterlogo.png" />
+    <img style="padding-left: 20px; padding-right: 20px; width: 90px; height: auto;" src="/assets/fblogo.png" />
+    <img style="padding-left: 20px; padding-right: 20px; width: 90px; height: auto;" src="/assets/gmail.png" />
+    <br />
+    <a style="float: right;" class="btn-floating blue lighten-1 btn-large" (click)="scrollTop();">
+        <i class="material-icons">
+            keyboard_arrow_up
+        </i>
+    </a>
+</div>

@@ -1,0 +1,191 @@
+<br />
+
+    <div class="container">
+        <div class="card white animated bounceInDown" id="cardContents">
+            <div class="card-content" style="background-image: url('./assets/admin.jpg'); background-repeat: no-repeat; background-size: cover; border-style: solid; border-color: whitesmoke;">
+                <div class="col s6">
+                    <h5>
+                        <br />
+                        <br />
+                        <p class="miLanting left-align" style="color: white;">
+                            Welcome! &nbsp;
+                            <span id="name"></span>
+                        </p>
+                    </h5>
+                </div>
+                <div class="col s6 miLanting right-align">
+                    <a data-target="modal2" class="waves-effect waves-light btn-flat red white-text btn modal-trigger miLanting" (click)="logoutFunction();" style="border-radius: 40px;">Logout</a>
+                </div>
+            </div>
+        </div>
+
+        <section id="wrapper">
+            <div class="card white animated bounceInDown center-align col s3" style="width: 348px; display: inline-block;">
+                <div class="card-content miLanting">
+                    <img src="/assets/avatar.png" />
+                    <h4>Registered users:</h4>
+                    <h3 style="color: purple; margin-top: 15px;">{{ users.length }}</h3>
+                </div>
+            </div>
+
+            <div class="card white animated bounceInDown center-align col s3" style="width: 348px; display: inline-block; margin-left: 8px;">
+                <div class="card-content miLanting">
+                    <img src="/assets/diet.png" />
+                    <h4>Catering Services:</h4>
+                    <h3 style="color: purple; margin-top: 15px;">{{ companies.length }}</h3>
+                </div>
+            </div>
+
+            <div class="card white animated bounceInDown center-align col s3" style="width: 348px; display: inline-block; margin-left: 8px;">
+                <div class="card-content miLanting">
+                    <img src="/assets/communication.png" />
+                    <h4>Reviews received:</h4>
+                    <h3 style="color: purple; margin-top: 15px;">{{ reviews.length }}</h3>
+                </div>
+            </div>
+        </section>
+
+        <div class="card white animated bounceInDown" id="cardContents">
+            <div class="card-content">
+                <h5 class="miLanting">Users</h5>
+                <table class="highlight miLanting responsive-table">
+                    <thead class="align-middle">
+                        <th>ID</th>
+
+                        <th>Lastname</th>
+                        <th>Firstname</th>
+                        <th>Email Address</th>
+                        <th>Username</th>
+                        <th>Contact No.</th>
+                        <th class="aksyon">Action</th>
+                    </thead>
+                    <tbody id="users">
+                        <tr *ngFor="let user of users">
+                            <th class="align-middle" scope="row">
+                                {{user?.user_id}}
+                            </th>
+                            <td>{{user?.user_lname}}</td>
+                            <td>{{user?.user_fname}}</td>
+                            <td>{{user?.user_emailadd}}</td>
+                            <td>{{user?.user_username}}</td>
+                            <td>{{user?.user_contact}}</td>
+                            <td class="center-align">
+                                <a style="margin-left: 10px;" class="waves-effect waves-light btn-flat red white-text" (click)="deleteUser(user.user_id);" style="border-radius: 40px;"><i class="material-icons">delete</i></a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="card white animated bounceInDown" id="cardContents">
+            <div class="col s6">
+                <div class="card-content">
+                    <div class="col s6 miLanting left-align">
+                        <h5 class="miLanting">Companies</h5>
+                    </div>
+                    <div class="col s6 miLanting right-align">
+                        <button data-target="addCateringModal" class="waves-effect waves-light btn-flat blue darken-1 white-text btn modal-trigger miLanting" style="border-radius: 40px;">Add</button>
+                    </div>
+
+                    <table class="highlight responsive-table miLanting">
+                        <thead>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Location</th>
+                            <th>Contact Number</th>
+                            <th class="aksyon">Action</th>
+                        </thead>
+                        <tbody id="cateringservice ">
+                            <tr *ngFor="let company of companies">
+                                <th class="align-middle" scope="row">
+                                    {{company?.company_id}}
+                                </th>
+                                <td class="align-middle">{{company?.company_name}}</td>
+                                <td class="align-middle">{{company?.company_location}}</td>
+                                <td class="align-middle">{{company?.company_contact}}</td>
+                                <td class="center-align">
+                                    <button data-target="updateCateringModal" class="waves-effect waves-light btn-flat green darken-1 white-text btn modal-trigger center-align" (click)="updateForm(company)" style="border-radius: 40px;">
+                                        <i class="material-icons">create</i>
+                                    </button>
+                                    <button style="margin-left: 10px;" class="waves-effect waves-light btn-flat red white-text center-align" (click)="deleteCompany(company?.company_id)" style="border-radius: 40px; margin-left: 5px;">
+                                        <i class="material-icons">delete</i>
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div style="width: 25%;" id="addCateringModal" class="modal">
+        <div class="modal-content">
+            <form [formGroup]="addCompanyForm">
+                <h5 id="modaltitle" class="miLanting center-align">Add Catering Service</h5>
+                <br />
+
+                <label style="font-size: medium;" class="miLanting" for="company_id" hidden>ID:</label>
+                <input type="text" id="company_id" hidden />
+
+                <div class="input-field">
+                    <label style="font-size: medium;" class="miLanting" for="company_name">Company Name:</label>
+                    <input type="text" formControlName="company_name" [(ngModel)]="company_name" id="company_name" />
+                    <span class="error ion-padding miLanting" style="color: crimson;" *ngIf="isSubmitted && errorControl.company_name.errors?.required"><b>This field is required.</b></span>
+                </div>
+
+                <div class="input-field">
+                    <label style="font-size: medium;" class="miLanting" for="company_location">Location:</label>
+                    <input type="text" formControlName="company_location" [(ngModel)]="company_location" id="company_location" />
+                    <span class="error ion-padding miLanting" style="color: crimson;" *ngIf="isSubmitted && errorControl.company_location.errors?.required"><b>This field is required.</b></span>
+                </div>
+
+                <div class="input-field">
+                    <label style="font-size: medium;" class="miLanting" for="company_contact">Contact:</label>
+                    <input type="text" formControlName="company_contact" [(ngModel)]="company_contact" id="company_contact" maxlength="11" />
+                    <span class="error ion-padding miLanting" style="color: crimson;" *ngIf="isSubmitted && errorControl.company_contact.errors?.required"><b>This field is required.</b></span>
+                    <span class="error ion-padding miLanting" style="color: crimson;" *ngIf="isSubmitted && errorControl.company_contact.errors?.maxlength"><b>Contact number should only be 11 digits long.</b></span>
+                    <span class="error ion-padding miLanting" style="color: crimson;" *ngIf="isSubmitted && errorControl.company_contact.errors?.pattern"><b>Contact number should only consist of numbers</b></span>
+                </div>
+
+                <div class="center-align">
+                    <a class="waves-effect waves-light btn-flat green darken-1 white-text miLanting" type="submit" style="border-radius: 40px;" (click)="addCompany();">Add Company</a>
+                    <a style="margin-left: 5px; border-radius: 40px;" class="waves-effect waves-light btn-flat red white-text modal-close miLanting" type="button">Close</a>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div style="width: 25%;" id="updateCateringModal" class="modal">
+        <div class="modal-content center-align">
+            <h5 id="modaltitle" class="miLanting">Update Catering Company</h5>
+
+            <br />
+
+            <div class="input-field">
+                <label class="modalInput miLanting" for="company_id1" hidden>ID:</label>
+                <input type="text" id="company_id1" hidden [(ngModel)]="companyInfo.company_id1" />
+            </div>
+
+            <div class="input-field">
+                <label class="modalInput miLanting" for="company_name1" hidden>Name:</label>
+                <input type="text" id="company_name1" [(ngModel)]="companyInfo.company_name1" />
+            </div>
+
+            <div class="input-field">
+                <label class="modalInput miLanting" for="company_location1" hidden>Location:</label>
+                <input type="text" id="company_location1" [(ngModel)]="companyInfo.company_location1" />
+            </div>
+
+            <div class="input-field">
+                <label class="modalInput miLanting" for="company_contact1" hidden>ID:</label>
+                <input type="text" id="company_contact1" [(ngModel)]="companyInfo.company_contact1" maxlength="11" />
+            </div>
+
+            <div class="center-align">
+                <a class="waves-effect waves-light btn-flat green darken-1 white-text miLanting" type="submit" style="border-radius: 40px;" (click)="updateCompany($event);">Save Changes</a>
+                <a style="margin-left: 5px; border-radius: 40px;" class="waves-effect waves-light btn-flat red white-text modal-close miLanting" type="button">Close</a>
+            </div>
+        </div>
+    </div>

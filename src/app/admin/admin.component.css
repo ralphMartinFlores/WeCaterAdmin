@@ -1,0 +1,27 @@
+@font-face {
+    font-family: 'MiLanting';
+    src: url(/assets/milantingpro.ttf);
+}
+
+.miLanting {
+    font-family: 'MiLanting';
+    color: black;
+}
+
+.body {
+    font-family: 'MiLanting';
+}
+
+.aksyon {
+    text-align: center;
+}
+
+#cardContents {
+    margin-left: auto;
+    margin-right: auto;
+    width: auto;
+}
+
+.modalInput {
+    font-size: medium;
+}

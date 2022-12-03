@@ -1,0 +1,29 @@
+.login-div {
+    max-width: 430px;
+    padding: 35px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+}
+
+.logo {
+    background-image: url("/assets/finallogo.png");
+    width: 200px;
+    height: 200px;
+    margin: 0 auto;
+    margin-left: 90px;
+    margin-right: 90px;
+}
+
+@font-face {
+    font-family: 'MiLanting';
+    src: url(/assets/milantingpro.ttf);
+}
+
+.miLanting {
+    font-family: 'MiLanting';
+}
+
+.login-div {
+    margin-left: auto;
+    margin-right: auto;
+}

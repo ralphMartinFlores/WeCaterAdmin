@@ -1,0 +1,148 @@
+<!-- Navigation Bar -->
+<div class="navbar-fixed">
+    <nav>
+        <div class="nav-wrapper" style="background-color: #418bd1;">
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+                <li><a style="font-family: 'MiLanting';" routerLink="/landingpage">Home</a></li>
+                <li>
+                    <span style="font-family: 'MiLanting';">|</span>
+                </li>
+                <li><a style="font-family: 'MiLanting';" routerLink="/register">Register</a></li>
+                <li>
+                    <span style="font-family: 'MiLanting';">|</span>
+                </li>
+                <li><a style="font-family: 'MiLanting';" routerLink="/login">Log In</a></li>
+            </ul>
+        </div>
+    </nav>
+</div>
+
+<br />
+<br />
+<br />
+
+<!-- Registration Form -->
+<div class="container animated fadeIn">
+    <div class="container">
+        <div class="container">
+            <div class="container">
+                <div class="login-div animated zoomIn" style="background-color: white; width: 600px;">
+                    <div class="logo"></div>
+
+                    <div class="center-align">
+                        <h5 class="miLanting">Sign Up</h5>
+                        <h6 class="miLanting">Register new WeCater account</h6>
+                    </div>
+
+                    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+                        <!-- Username input field -->
+                        <div class="input-field form-group" style="margin-top: 50px;">
+                            <label class="miLanting" for="username">Username</label>
+                            <input
+                                [(ngModel)]="inputValue"
+                                autocomplete="off"
+                                formControlName="userName"
+                                id="username"
+                                type="text"
+                                [ngClass]="{ 'is-invalid': submitted &amp;&amp; registerForm.controls.userName.errors }"
+                                class="form-control"
+                            />
+
+                            <div *ngIf="submitted &amp;&amp; registerForm.controls.userName.errors" class="text-danger animated shake">
+                                <div *ngIf="registerForm.controls.userName.errors.required" class="validationError miLanting">Username is required</div>
+                            </div>
+                        </div>
+
+                        <!-- Password input field -->
+                        <div class="input-field form-group">
+                            <label class="miLanting" for="password">Password</label>
+                            <input
+                                [(ngModel)]="inputValue2"
+                                autocomplete="off"
+                                formControlName="password"
+                                id="password"
+                                type="password"
+                                [ngClass]="{ 'is-invalid': submitted &amp;&amp; registerForm.controls.password.errors }"
+                                class="form-control"
+                            />
+                            <div *ngIf="submitted &amp;&amp; registerForm.controls.password.errors" class="text-danger animated shake">
+                                <div *ngIf="registerForm.controls.password.errors.required" class="validationError miLanting">Password is required</div>
+                            </div>
+                        </div>
+
+                        <!-- First name input field -->
+                        <div class="input-field form-group">
+                            <label class="miLanting" for="user_fname">First Name</label>
+                            <input
+                                [(ngModel)]="inputValue3"
+                                autocomplete="off"
+                                formControlName="firstName"
+                                id="fname"
+                                type="text"
+                                [ngClass]="{ 'is-invalid': submitted &amp;&amp; registerForm.controls.firstName.errors }"
+                                class="form-control"
+                            />
+                            <div *ngIf="submitted &amp;&amp; registerForm.controls.firstName.errors" class="text-danger animated shake">
+                                <div *ngIf="registerForm.controls.firstName.errors.required" class="validationError miLanting">First Name is required</div>
+                            </div>
+                        </div>
+
+                        <!-- Last name input field -->
+                        <div class="input-field form-group">
+                            <label for="lastname" [ngClass]="{ 'is-invalid': submitted &amp;&amp; registerForm.controls.lastName.errors }" class="form-control miLanting">Last Name</label>
+                            <input [(ngModel)]="inputValue4" autocomplete="off" formControlName="lastName" id="lastname" type="text" />
+                            <div *ngIf="submitted &amp;&amp; registerForm.controls.lastName.errors" class="text-danger animated shake miLanting">
+                                <div class="miLanting" *ngIf="registerForm.controls.lastName.errors.required" class="validationError">Last Name is required</div>
+                            </div>
+                        </div>
+
+                        <!-- Contact number input field -->
+                        <div class="input-field form-group">
+                            <label class="miLanting" for="contactnum">Contact No.</label>
+                            <input
+                                [(ngModel)]="inputValue5"
+                                maxlength="11"
+                                autocomplete="off"
+                                formControlName="contactNum"
+                                id="contactnum"
+                                type="text"
+                                [ngClass]="{ 'is-invalid': submitted &amp;&amp; registerForm.controls.contactNum.errors }"
+                                class="form-control"
+                            />
+                            <div *ngIf="submitted &amp;&amp; registerForm.controls.contactNum.errors" class="text-danger animated shake">
+                                <div *ngIf="registerForm.controls.contactNum.errors.required" class="validationError miLanting">Contact Number is required</div>
+                                <div *ngIf="registerForm.controls.contactNum.errors.maxlength" class="miLanting">Contact Number must be at least 11 digits</div>
+                            </div>
+                        </div>
+
+                        <!-- Email input field -->
+                        <div class="input-field form-group">
+                            <label class="miLanting" for="email">Email</label>
+                            <input
+                                [(ngModel)]="inputValue6"
+                                autocomplete="off"
+                                formControlName="email"
+                                id="user_emailadd1"
+                                type="email"
+                                [ngClass]="{ 'is-invalid': submitted &amp;&amp; registerForm.controls.email.errors }"
+                                class="form-control"
+                            />
+                            <div *ngIf="submitted &amp;&amp; registerForm.controls.email.errors" class="text-danger animated shake miLanting">
+                                <div class="miLanting" *ngIf="registerForm.controls.email.errors.required" class="validationError">Email address is required</div>
+                                <div class="text-danger animated shake validationError miLanting" *ngIf="registerForm.controls.email.errors.email">Email must be a valid email address</div>
+                            </div>
+                        </div>
+
+                        <!-- Cancel and Finish Registration Button -->
+                        <div class="row">
+                            <div class="col s6 miLanting"><a routerLink="/landingpage">Cancel</a></div>
+                            <div class="col s6 right-align google form-group">
+                                <button type="submit" class="waves-effect waves-light btn-flat blue darken-3 white-text" style="border-radius: 40px; font-family: 'MiLanting';">Finish</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
